@@ -19,7 +19,7 @@ def index():
 
 @app.get("/libros/{id}")
 def mostrar_libro(id: int):
-    return {"data: id"}
+    return {"data": id}
 
 @app.post("/libros")
 def insertar_libro(libro: Libro):

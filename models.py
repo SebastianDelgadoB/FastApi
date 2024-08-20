@@ -1,12 +1,11 @@
-# models.py
-from sqlalchemy import Table, Column, Integer, String
-from .database import metadata
+from sqlalchemy import Column, Integer, String
+from database import Base
 
-# Definimos un modelo simple
-users = Table(
-    "users",
-    metadata,
-    Column("id", Integer, primary_key=True),
-    Column("name", String(50)),
-    Column("email", String(100), unique=True),
-)
+class Libro(Base):
+    __tablename__ = "libros"
+
+    id = Column(Integer, primary_key=True, index=True)
+    titulo = Column(String, index=True)
+    autor = Column(String)
+    paginas = Column(Integer)
+    editorial = Column(String, nullable=True)
